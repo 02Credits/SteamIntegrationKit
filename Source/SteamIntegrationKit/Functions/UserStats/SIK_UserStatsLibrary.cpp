@@ -164,18 +164,18 @@ void USIK_UserStatsLibrary::GetAchievementIcon(const FString& AchievementName, U
 #endif
 }
 
-bool USIK_UserStatsLibrary::CacheCurrentStats()
-{
-#if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)
-	if(SteamUserStats() == nullptr)
-	{
-		return false;
-	}
-	return SteamUserStats()->RequestCurrentStats();
-#else
-	return false;
-#endif
-}
+// bool USIK_UserStatsLibrary::CacheCurrentStats()
+// {
+// #if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)
+// 	if(SteamUserStats() == nullptr)
+// 	{
+// 		return false;
+// 	}
+// 	return SteamUserStats()->RequestCurrentStats();
+// #else
+// 	return false;
+// #endif
+// }
 
 bool USIK_UserStatsLibrary::ClearAchievement(const FString& AchievementName)
 {
@@ -446,18 +446,18 @@ bool USIK_UserStatsLibrary::GetGlobalStatFloat(const FString& StatName, float& D
 #endif
 }
 
-bool USIK_UserStatsLibrary::RequestCurrentStats()
-{
-#if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)
-	if(SteamUserStats() == nullptr)
-	{
-		return false;
-	}
-	return SteamUserStats()->RequestCurrentStats();
-#else
-	return false;
-#endif
-}
+// bool USIK_UserStatsLibrary::RequestCurrentStats()
+// {
+// #if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)
+// 	if(SteamUserStats() == nullptr)
+// 	{
+// 		return false;
+// 	}
+// 	return SteamUserStats()->RequestCurrentStats();
+// #else
+// 	return false;
+// #endif
+// }
 
 bool USIK_UserStatsLibrary::StoreStats()
 {

@@ -597,3 +597,5 @@ bool USIKSettings::SaveCredentialsToSystem_Linux()
 }
 #endif // WITH_EDITOR
 #endif
+
+#undef LOCTEXT_NAMESPACE

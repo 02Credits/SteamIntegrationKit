@@ -110,8 +110,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Steam Integration Kit || SDK Functions || User Stats")
 	static bool GetGlobalStatFloat(const FString& StatName, float& Data);
 
-	UFUNCTION(BlueprintCallable, Category = "Steam Integration Kit || SDK Functions || User Stats")
-	static bool RequestCurrentStats();
+	// UFUNCTION(BlueprintCallable, Category = "Steam Integration Kit || SDK Functions || User Stats")
+	// static bool RequestCurrentStats();
 
 	UFUNCTION(BlueprintCallable, Category = "Steam Integration Kit || SDK Functions || User Stats")
 	static bool StoreStats();
