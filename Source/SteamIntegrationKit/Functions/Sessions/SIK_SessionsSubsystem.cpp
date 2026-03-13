@@ -12,9 +12,9 @@
 #include "OnlineSubsystemSteam/Private/OnlineSessionInterfaceSteam.h"
 #endif
 #if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)
-#include <isteammatchmaking.h>
-#include <isteamuser.h>
-#include <steam_api_common.h>
+#include "steam/isteammatchmaking.h"
+#include "steam/isteamuser.h"
+#include "steam/steam_api_common.h"
 #endif
 
 void USIK_SessionsSubsystem::Func_OnSessionUserInviteAccepted(bool bWasSuccessful, int ControllerId, TSharedPtr<const FUniqueNetId> UniqueNetId,

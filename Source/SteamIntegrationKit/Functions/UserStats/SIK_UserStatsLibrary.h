@@ -53,8 +53,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Steam Integration Kit || SDK Functions || User Stats")
 	static void GetAchievementIcon(const FString& AchievementName, UTexture2D*& Icon);
 
-	UFUNCTION(BlueprintCallable, Category = "Steam Integration Kit || SDK Functions || User Stats")
-	static bool CacheCurrentStats();
+	// UFUNCTION(BlueprintCallable, Category = "Steam Integration Kit || SDK Functions || User Stats")
+	// static bool CacheCurrentStats();
 
 	UFUNCTION(BlueprintCallable, Category = "Steam Integration Kit || SDK Functions || User Stats")
 	static bool ClearAchievement(const FString& AchievementName);
