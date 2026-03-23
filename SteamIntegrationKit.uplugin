@@ -18,7 +18,7 @@
 		{
 			"Name": "SteamIntegrationKit",
 			"Type": "Runtime",
-			"LoadingPhase": "PostDefault",
+			"LoadingPhase": "Default",
 			"PlatformAllowList": [
 				"Win64",
 				"Mac",
