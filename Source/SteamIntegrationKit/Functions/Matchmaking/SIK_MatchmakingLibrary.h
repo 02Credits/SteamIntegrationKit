@@ -330,4 +330,7 @@ public:
 	*/
 	UFUNCTION(BlueprintCallable, DisplayName = "Set Lobby Type", meta=(Keywords="SetLobbyType"), Category="Steam Integration Kit || SDK Functions || Matchmaking")
 	static bool SetLobbyType(FSIK_SteamId LobbyID, TEnumAsByte<ESIK_LobbyType> LobbyType);
+
+	UFUNCTION(BlueprintCallable, DisplayName = "Join Lobby", meta = (Keywords = "JoinLobby"), Category = "Steam Integration Kit || SDK Functions || Matchmaking")
+	static void JoinLobby(FSIK_SteamId LobbyId);
 };
