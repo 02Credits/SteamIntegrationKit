@@ -467,6 +467,18 @@ bool USIK_MatchmakingLibrary::SetLobbyType(FSIK_SteamId LobbyID, TEnumAsByte<ESI
 #endif
 }
 
+void USIK_MatchmakingLibrary::CreateLobby(int32 MaxMembers, TEnumAsByte<ESIK_LobbyType> LobbyType) {
+#if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)
+    if (!SteamMatchmaking()) {
+        return;
+    }
+
+    SteamMatchmaking()->CreateLobby(static_cast<ELobbyType>(LobbyType.GetValue()), MaxMembers);
+#else
+    return;
+#endif;
+}
+
 void USIK_MatchmakingLibrary::JoinLobby(FSIK_SteamId LobbyId) {
 #if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)
     if (!SteamMatchmaking()) {

@@ -8,7 +8,7 @@
 #include "SIK_MatchmakingLibrary.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class STEAMINTEGRATIONKIT_API USIK_MatchmakingLibrary : public UBlueprintFunctionLibrary
@@ -16,7 +16,7 @@ class STEAMINTEGRATIONKIT_API USIK_MatchmakingLibrary : public UBlueprintFunctio
 	GENERATED_BODY()
 
 public:
-	
+
 	/*
 		Adds a favorite game to the user's favorites list.
 		@param AppID - The AppID of the game.
@@ -250,7 +250,7 @@ public:
 	*/
 	UFUNCTION(BlueprintCallable, DisplayName = "Request Lobby Data", meta=(Keywords="RequestLobbyData"), Category="Steam Integration Kit || SDK Functions || Matchmaking")
 	static bool RequestLobbyData(FSIK_SteamId LobbyID);
-	
+
 	/*
 	Sends a chat message to a lobby.
 	@param LobbyID - The Steam ID of the lobby.
@@ -330,6 +330,9 @@ public:
 	*/
 	UFUNCTION(BlueprintCallable, DisplayName = "Set Lobby Type", meta=(Keywords="SetLobbyType"), Category="Steam Integration Kit || SDK Functions || Matchmaking")
 	static bool SetLobbyType(FSIK_SteamId LobbyID, TEnumAsByte<ESIK_LobbyType> LobbyType);
+
+	UFUNCTION(BlueprintCallable, DisplayName = "Create Lobby", meta = (Keywords = "CreateLobby"), Category = "Steam Integration Kit || SDK Functions || Matchmaking")
+	static void CreateLobby(int32 MaxMembers, TEnumAsByte<ESIK_LobbyType> LobbyType);
 
 	UFUNCTION(BlueprintCallable, DisplayName = "Join Lobby", meta = (Keywords = "JoinLobby"), Category = "Steam Integration Kit || SDK Functions || Matchmaking")
 	static void JoinLobby(FSIK_SteamId LobbyId);
