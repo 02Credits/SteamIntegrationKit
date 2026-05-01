@@ -476,7 +476,7 @@ void USIK_MatchmakingLibrary::CreateLobby(int32 MaxMembers, TEnumAsByte<ESIK_Lob
     SteamMatchmaking()->CreateLobby(static_cast<ELobbyType>(LobbyType.GetValue()), MaxMembers);
 #else
     return;
-#endif;
+#endif
 }
 
 void USIK_MatchmakingLibrary::JoinLobby(FSIK_SteamId LobbyId) {
