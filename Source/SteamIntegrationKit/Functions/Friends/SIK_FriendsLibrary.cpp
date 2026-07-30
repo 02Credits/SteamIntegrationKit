@@ -721,19 +721,6 @@ UTexture2D* USIK_FriendsLibrary::GetSmallFriendAvatar(FSIK_SteamId SteamIdFriend
 #endif
 }
 
-int32 USIK_FriendsLibrary::GetUserRestrictions()
-{
-#if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)
-	if(SteamFriends() != nullptr)
-	{
-		return SteamFriends()->GetUserRestrictions();
-	}
-	return -1;
-#else
-	return -1;
-#endif
-}
-
 bool USIK_FriendsLibrary::HasFriend(FSIK_SteamId SteamIdFriend, TArray<TEnumAsByte<ESIK_FriendFlags>> FriendFlags)
 {
 #if (WITH_ENGINE_STEAM && ONLINESUBSYSTEMSTEAM_PACKAGE) || (WITH_STEAMKIT && !WITH_ENGINE_STEAM)

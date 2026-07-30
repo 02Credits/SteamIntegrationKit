@@ -24,7 +24,6 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnGameRichPresenceJoinRequested, F
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnGameServerChangeRequested, FString, Server, FString, Password);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnJoinClanChatRoomCompletionResult, FSIK_SteamId, ClanChatId, TEnumAsByte<ESIK_ChatRoomEnterResponse>, ChatRoomEnterResponse);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPersonaStateChange, FSIK_SteamId, SteamId, int32, ChangeFlags);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnSetPersonaNameResponse, TEnumAsByte<ESIK_Result>, Result, bool, bLocalSuccess, bool, bRemoteSuccess);
 
 
 
@@ -112,10 +111,6 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Steam Integration Kit | Friends | Response")
 	FOnPersonaStateChange OnPersonaStateChange;
 
-	//Reports the result of an attempt to change the current user's persona name.
-	UPROPERTY(BlueprintAssignable, Category = "Steam Integration Kit | Friends | Response")
-	FOnSetPersonaNameResponse OnSetPersonaNameResponse;
-
 	//Called when a large avatar is loaded if you have tried requesting it when it was unavailable.
 	UPROPERTY(BlueprintAssignable, Category = "Steam Integration Kit | Friends | Response")
 	FOnAvatarImageLoaded OnAvatarImageLoaded;
@@ -139,6 +134,5 @@ private:
 	STEAM_CALLBACK_MANUAL(USIK_FriendsSubsystem, OnGameServerChangeRequestedCallback, GameServerChangeRequested_t, m_CallbackGameServerChangeRequested);
 	STEAM_CALLBACK_MANUAL(USIK_FriendsSubsystem, OnJoinClanChatRoomCompletionResultCallback, JoinClanChatRoomCompletionResult_t, m_CallbackJoinClanChatRoomCompletionResult);
 	STEAM_CALLBACK_MANUAL(USIK_FriendsSubsystem, OnPersonaStateChangeCallback, PersonaStateChange_t, m_CallbackPersonaStateChange);
-	STEAM_CALLBACK_MANUAL(USIK_FriendsSubsystem, OnSetPersonaNameResponseCallback, SetPersonaNameResponse_t, m_CallbackSetPersonaNameResponse);
 #endif
 };

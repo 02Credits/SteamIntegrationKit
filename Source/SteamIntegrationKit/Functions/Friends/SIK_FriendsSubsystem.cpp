@@ -26,7 +26,6 @@ USIK_FriendsSubsystem::USIK_FriendsSubsystem()
 		m_CallbackGameServerChangeRequested.Register(this, &USIK_FriendsSubsystem::OnGameServerChangeRequestedCallback);
 		m_CallbackJoinClanChatRoomCompletionResult.Register(this, &USIK_FriendsSubsystem::OnJoinClanChatRoomCompletionResultCallback);
 		m_CallbackPersonaStateChange.Register(this, &USIK_FriendsSubsystem::OnPersonaStateChangeCallback);
-		m_CallbackSetPersonaNameResponse.Register(this, &USIK_FriendsSubsystem::OnSetPersonaNameResponseCallback);
 		m_CallbackClanOfficerList.Register(this, &USIK_FriendsSubsystem::OnClanOfficerListCallback);
 
 		if(IsRunningDedicatedServer())
@@ -47,7 +46,6 @@ USIK_FriendsSubsystem::USIK_FriendsSubsystem()
 			m_CallbackGameServerChangeRequested.SetGameserverFlag();
 			m_CallbackJoinClanChatRoomCompletionResult.SetGameserverFlag();
 			m_CallbackPersonaStateChange.SetGameserverFlag();
-			m_CallbackSetPersonaNameResponse.SetGameserverFlag();
 			m_CallbackClanOfficerList.SetGameserverFlag();
 		}
 	}
@@ -73,7 +71,6 @@ USIK_FriendsSubsystem::~USIK_FriendsSubsystem()
 	m_CallbackGameServerChangeRequested.Unregister();
 	m_CallbackJoinClanChatRoomCompletionResult.Unregister();
 	m_CallbackPersonaStateChange.Unregister();
-	m_CallbackSetPersonaNameResponse.Unregister();
 	m_CallbackClanOfficerList.Unregister();
 #endif
 }
@@ -225,15 +222,6 @@ void USIK_FriendsSubsystem::OnPersonaStateChangeCallback(PersonaStateChange_t* p
 	AsyncTask(ENamedThreads::GameThread, [this, Param]()
 	{
 		OnPersonaStateChange.Broadcast(Param.m_ulSteamID, Param.m_nChangeFlags);
-	});
-}
-
-void USIK_FriendsSubsystem::OnSetPersonaNameResponseCallback(SetPersonaNameResponse_t* pParam)
-{
-	auto Param = *pParam;
-	AsyncTask(ENamedThreads::GameThread, [this, Param]()
-	{
-		OnSetPersonaNameResponse.Broadcast(static_cast<ESIK_Result>(Param.m_result), Param.m_bLocalSuccess, Param.m_bSuccess);
 	});
 }
 

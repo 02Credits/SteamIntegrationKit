@@ -469,13 +469,6 @@ public:
 	static UTexture2D* GetSmallFriendAvatar(FSIK_SteamId SteamIdFriend, int32& Avatar);
 
 	/*
-	Gets the user restrictions.
-	@return - The user restrictions as an int.
-	*/
-	UFUNCTION(BlueprintCallable, DisplayName = "Get Steam User Restrictions", meta=(Keywords="GetUserRestrictions"), Category = "Steam Integration Kit || SDK Functions || Friends")
-	static int32 GetUserRestrictions();
-
-	/*
 	Checks if the user has a specific friend.
 	@param SteamIdFriend - The Steam ID of the friend.
 	@param FriendFlags - Flags to filter friends.
